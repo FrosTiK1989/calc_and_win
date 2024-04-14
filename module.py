@@ -36,7 +36,7 @@ def get_user_attack():
         input_attack = input('Введи тип атаки: ').lower()
         attack_value = attacks_types[input_attack]()
         print(f'Количество очков твоей атаки: {attack_value}.')
-        total += 1
+        total += attack_value
     return total
 
 
@@ -52,9 +52,11 @@ def run_game():
     yes_no = {
         'Y': True,
         'N': False,
+        'y': True,
+        'n': False,
     }
-    replay = input('Чтобы сыграть ещё раз, введи "y"; '
-                   'если не хочешь продолжать игру, введи "n": ')
+    replay = input('Чтобы сыграть ещё раз, введи "Y"; '
+                   'если не хочешь продолжать игру, введи "N": ')
     if replay not in yes_no:
         raise ValueError('Такой команды в игре нет.')
     return yes_no[replay]
